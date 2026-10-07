@@ -1,0 +1,23 @@
+#include "gpio.h"
+#include "adc.h"
+#include "systick.h"
+
+int main(void)
+{
+	gpio_a_init();
+	adc_init();
+	systick_init();
+
+	uint32_t last_sample_time = get_systick_ms();
+	while (1){
+		//Non-blocking check: Has 100 ms passed since the last sample?
+		if (get_systick_ms() - last_sample_time >= 100){
+			last_sample_time = get_systick_ms();
+			uint16_t my_sensor_value = adc_read_single();
+				//You can process sensor data here
+		}
+
+		//CPU can do other tasks here freely without hanging in a delay loop
+	}
+	return 0;
+}

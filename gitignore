@@ -1,0 +1,16 @@
+# Carpetas de compilación autogeneradas
+Debug/
+Release/
+.settings/
+
+# Archivos de depuración local
+*.launch
+
+# Archivos objeto y binarios generados al compilar
+*.o
+*.su
+*.d
+*.elf
+*.bin
+*.hex
+*.map

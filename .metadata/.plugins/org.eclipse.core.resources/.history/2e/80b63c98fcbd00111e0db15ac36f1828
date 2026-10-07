@@ -1,0 +1,26 @@
+#include "stm32f410rb.h"
+#include "gpio.h"
+#include "timer.h"
+
+volatile TIM_TypeDef *pTIM5 = TIM5;
+
+int main (void){
+	gpio_pa0_init_pwm(); //funcion de gpio.c
+	tim5_pwm_init(); //funcion de timer.c
+
+	uint32_t duty_cycle = 0;
+
+	while (1){
+		//Incremento gradual del duty cycle para efecto fade
+		duty_cycle += 10;
+		if (duty_cycle > 999){
+			duty_cycle = 0;
+		}
+
+		tim5_set_duty_cycle(duty_cycle);
+
+		//Delay simple por software
+		for (volatile int i = 0; i<50000; i++);
+	}
+	return 0;
+}

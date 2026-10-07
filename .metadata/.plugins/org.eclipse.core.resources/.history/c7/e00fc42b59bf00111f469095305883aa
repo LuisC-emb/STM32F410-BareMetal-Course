@@ -1,0 +1,22 @@
+#include "adc.h"
+
+
+/*1.How to turn a bit ON (Set bit): register |= (1 << bit_position);
+2.How to turn a bit OFF (Clear bit): register &= ~(1 << bit_position);*/
+
+void adc_initialize (void){
+
+	//1. Enable peripheral clock for ADC1 (1 on bit 8)
+	RCC->APB2ENR |= (1 << 8);
+
+	//2. Set clock prescaler ADC_CCR (common control register)
+	ADC_C->ADC_CCR &= ~(3 << 17); //PCLK2 (16MHz) divided by 2 = 8MHz
+
+	//3.Configure ADC resolution, alignment & Mode
+	ADC->CR1 &= ~(3 << 25); //Resolution 12 bits with 00 on bit 25:24
+	ADC->CR2 &= ~(1 << 11); //Right alignment, 0 on bit 11
+	ADC->CR2 &= ~(1 << 1); //Single conversion mode (1 conversion and stops)
+	ADC->SQR1 &= ~(16 << 23);
+
+
+}

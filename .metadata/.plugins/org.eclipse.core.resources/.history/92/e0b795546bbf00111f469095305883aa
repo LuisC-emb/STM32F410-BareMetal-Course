@@ -1,0 +1,7 @@
+#include "systick.h"
+
+void systick_init(void){
+	STK->LOAD = 15999;                 //1. Load 15999 for 1ms tick at 16MHz
+	STK->VAL = 0;                      //2. Clear current counter value
+	STK->CTRL |= (1 << 0) | (1 << 2);  //3. Enable systick + select processor clock
+}

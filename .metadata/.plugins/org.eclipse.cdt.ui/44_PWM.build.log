@@ -1,0 +1,40 @@
+18:07:23 **** Incremental Build of configuration Debug for project 44_PWM ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F410RBTx -DSTM32 -DNUCLEO_F410RB -DSTM32F4 -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+In file included from ../Src/main.c:1:
+../Inc/stm32f410rb.h:8:1: warning: "/*" within comment [-Wcomment]
+    8 | /*=====================================================================*/
+../Inc/stm32f410rb.h:87:1: warning: "/*" within comment [-Wcomment]
+   87 | /*2. Direcciones base de memorias y buses (STM32F410RB)
+../Inc/stm32f410rb.h:88:1: warning: "/*" within comment [-Wcomment]
+   88 | /*=====================================================================*/
+../Inc/stm32f410rb.h:100:1: warning: "/*" within comment [-Wcomment]
+  100 | /*3. Casteo a punteros
+../Inc/stm32f410rb.h:101:1: warning: "/*" within comment [-Wcomment]
+  101 | /*=====================================================================*/
+In file included from ../Inc/gpio.h:4,
+                 from ../Src/main.c:2:
+../Inc/stm32f410rb.h:8:1: warning: "/*" within comment [-Wcomment]
+    8 | /*=====================================================================*/
+../Inc/stm32f410rb.h:87:1: warning: "/*" within comment [-Wcomment]
+   87 | /*2. Direcciones base de memorias y buses (STM32F410RB)
+../Inc/stm32f410rb.h:88:1: warning: "/*" within comment [-Wcomment]
+   88 | /*=====================================================================*/
+../Inc/stm32f410rb.h:100:1: warning: "/*" within comment [-Wcomment]
+  100 | /*3. Casteo a punteros
+../Inc/stm32f410rb.h:101:1: warning: "/*" within comment [-Wcomment]
+  101 | /*=====================================================================*/
+arm-none-eabi-gcc -o "44_PWM.elf" @"objects.list"   -mcpu=cortex-m4 -T"D:\Embedded\STM32Bare\Module4\4.4PWM\STM32F410RBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="44_PWM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: 44_PWM.elf
+ 
+arm-none-eabi-size  44_PWM.elf 
+arm-none-eabi-objdump -h -S 44_PWM.elf  > "44_PWM.list"
+   text	   data	    bss	    dec	    hex	filename
+    996	      0	   1568	   2564	    a04	44_PWM.elf
+Finished building: default.size.stdout
+ 
+Finished building: 44_PWM.list
+ 
+
+18:07:23 Build Finished. 0 errors, 10 warnings. (took 510ms)
+
