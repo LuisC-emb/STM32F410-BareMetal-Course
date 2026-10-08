@@ -1,0 +1,2 @@
+../Src/adc.c:8:6:adc_init_dual_regular	8	static
+../Src/adc.c:46:10:adc_read_channel	4	static

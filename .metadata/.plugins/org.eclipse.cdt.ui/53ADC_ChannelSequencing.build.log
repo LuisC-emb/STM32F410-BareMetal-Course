@@ -1,0 +1,10 @@
+19:40:57 **** Incremental Build of configuration Debug for project 53ADC_ChannelSequencing ****
+make -j12 all 
+arm-none-eabi-size  53ADC_ChannelSequencing.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1208	      0	   1576	   2784	    ae0	53ADC_ChannelSequencing.elf
+Finished building: default.size.stdout
+ 
+
+19:40:57 Build Finished. 0 errors, 0 warnings. (took 145ms)
+
