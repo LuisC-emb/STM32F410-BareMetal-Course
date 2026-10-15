@@ -45,16 +45,13 @@ Ideal para mapear qué pines usaste en tu hardware:
 | Potenciómetro | PA0 | Modo Analógico (ADC\\\_IN0) |
 
 
-´´´
+```
 
 
 
 
 
-
-```c
-
-//ejemplo para mi codigo ylm
+//ejemplo para mi codigo imagen
 
 
 
