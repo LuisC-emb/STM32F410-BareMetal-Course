@@ -4,6 +4,8 @@
 
 \###subseccion
 
+## Índice
+* [1. Descripción del Proyecto](#1-descripción-del-proyecto)
 
 
 \*\*Este texto esta en negritas\*\*
@@ -40,7 +42,7 @@ Ideal para mapear qué pines usaste en tu hardware:
 
 ![Diagrama de FSM](./images/Absolute.jpg)
 
-
+> **⚠️ Nota de hardware:** El registro RCC_AHB1ENR
 
 ### E. Tablas
 Ideal para mapear qué pines usaste en tu hardware:
@@ -50,3 +52,18 @@ Ideal para mapear qué pines usaste en tu hardware:
 | LED Usuario | PA5 | Salida Push-Pull |
 | Botón B1 | PC13 | Entrada (EXTI13) |
 | Potenciómetro | PA0 | Modo Analógico (ADC_IN0) |
+
+![MCU](https://img.shields.io/badge/MCU-STM32F410RB-blue)
+![Language](https://img.shields.io/badge/Language-C%20(Bare--Metal)-orange)
+![IDE](https://img.shields.io/badge/IDE-STM32CubeIDE-green)
+
+
+
+## 1. Descripción del Proyecto
+
+
+
+
+
+
+
