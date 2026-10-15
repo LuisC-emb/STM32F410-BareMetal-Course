@@ -1,24 +1,24 @@
-\# Este es mi titulo mas grande
+# Este es mi titulo mas grande
 
-\##Subtitulo o sección
+##Subtitulo o sección
 
-\###subseccion
+###subseccion
 
 ## Índice
 * [1. Descripción del Proyecto](#1-descripción-del-proyecto)
 
 
-\*\*Este texto esta en negritas\*\*
+**Este texto esta en negritas**
 
-\*Curisva\*
+*Curisva*
 
 
 
-\*Modulo de GPIO
+*Modulo de GPIO
 
-\*Modulo de ADC
+*Modulo de ADC
 
-\*Maquina de Estados (FSM)
+*Maquina de Estados (FSM)
 
 
 
@@ -28,9 +28,9 @@
 
 
 
-\### E. Tablas
+### E. Tablas
 
-Ideal para mapear qué pines usaste en tu hardware:
+Ideal para mapear que pines usaste en tu hardware:
 
 
 
@@ -45,7 +45,7 @@ Ideal para mapear qué pines usaste en tu hardware:
 > **⚠️ Nota de hardware:** El registro RCC_AHB1ENR
 
 ### E. Tablas
-Ideal para mapear qué pines usaste en tu hardware:
+Ideal para mapear que pines usaste en tu hardware:
 
 | Componente | Pin STM32F410 | Modo GPIO |
 | :--- | :--- | :--- |
