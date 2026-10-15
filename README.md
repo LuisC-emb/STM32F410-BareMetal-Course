@@ -45,7 +45,7 @@ Ideal para mapear qué pines usaste en tu hardware:
 | Potenciómetro | PA0 | Modo Analógico (ADC\\\_IN0) |
 
 
-
+´´´
 
 
 
@@ -58,8 +58,8 @@ Ideal para mapear qué pines usaste en tu hardware:
 
 
 
-\\##Diagrama de absolute cinema
-!\\\[Diagrama de FSM] (./images/Absolute.jpg)
+##Diagrama de absolute cinema
+![Diagrama de FSM] (./images/Absolute.jpg)
 
 
 
