@@ -45,7 +45,6 @@ Ideal para mapear qué pines usaste en tu hardware:
 ### E. Tablas
 Ideal para mapear qué pines usaste en tu hardware:
 
-```markdown
 | Componente | Pin STM32F410 | Modo GPIO |
 | :--- | :--- | :--- |
 | LED Usuario | PA5 | Salida Push-Pull |
