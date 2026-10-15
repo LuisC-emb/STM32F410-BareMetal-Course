@@ -56,7 +56,8 @@ Ideal para mapear qué pines usaste en tu hardware:
 
 
 ##Diagrama de absolute cinema
-![Diagrama de FSM] (./images/Absolute.jpg)
+
+![Diagrama de FSM](./images/Absolute.jpg)
 
 
 
