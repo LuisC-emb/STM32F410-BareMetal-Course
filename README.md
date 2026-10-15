@@ -31,21 +31,6 @@
 Ideal para mapear qué pines usaste en tu hardware:
 
 
-### E. Tablas
-Ideal para mapear qué pines usaste en tu hardware:
-
-```markdown
-| Componente | Pin STM32F410 | Modo GPIO |
-| :--- | :--- | :--- |
-| LED Usuario | PA5 | Salida Push-Pull |
-| Botón B1 | PC13 | Entrada (EXTI13) |
-| Potenciómetro | PA0 | Modo Analógico (ADC_IN0) |
-
-```
-
-
-
-
 
 //ejemplo para mi codigo imagen
 
@@ -57,4 +42,12 @@ Ideal para mapear qué pines usaste en tu hardware:
 
 
 
+### E. Tablas
+Ideal para mapear qué pines usaste en tu hardware:
 
+```markdown
+| Componente | Pin STM32F410 | Modo GPIO |
+| :--- | :--- | :--- |
+| LED Usuario | PA5 | Salida Push-Pull |
+| Botón B1 | PC13 | Entrada (EXTI13) |
+| Potenciómetro | PA0 | Modo Analógico (ADC_IN0) |
