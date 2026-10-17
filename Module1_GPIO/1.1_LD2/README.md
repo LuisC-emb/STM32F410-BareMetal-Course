@@ -3,8 +3,6 @@
 ![IDE](https://img.shields.io/badge/IDE-STM32CubeIDE-green)
 
 # GPIO output (Turn ON user led / Hello world)
-<br>
-
 ## 🎯 Description
 First bare-metal firmware project. It directly initializes the hardware registers in C (without HAL or CMSIS libraries) to enable the clock and turn ON the user LED (**LD2**, physically mapped to pin **PA5**, as specified in page 24 of the datasheet).
 <br>
