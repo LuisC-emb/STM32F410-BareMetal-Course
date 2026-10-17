@@ -14,7 +14,7 @@ First bare-metal firmware project. It directly initializes the hardware register
 | User LED (LD2) | PA5 | Output Push-pull |
 
 Image with LD2 signaled in the physical STM32 board
-![LD2 in STM32](.\Module1_GPIO\1.1_LD2\images\STM32_LD2.png)
+![LD2 in STM32](./images/STM32_LD2.png)
 
 ## 📺 Hardware demonstration
 > 👉 [Watch the hardware demonstration video on YouTube](Iwillputthelinkhere)
