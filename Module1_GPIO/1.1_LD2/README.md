@@ -44,7 +44,6 @@ int main(){
 	*GPIOA_MODER |= (1 << 10); //Set PA5 as output
 	*GPIOA_ODR |= (1 << 5); //Set PA5 HIGH (Turn ON LD2)
 
-//Infinite loop
 	while (1){ 
         //Infinite loop
 	}
