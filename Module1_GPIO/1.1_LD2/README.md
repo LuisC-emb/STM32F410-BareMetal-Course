@@ -18,6 +18,7 @@ First bare-metal firmware project. It directly initializes the hardware register
   <small><i>Physical location of user LED (LD2) indicated by the red arrow.</i></small>
 </p>
 <br>
+
 ## 📺 Hardware demonstration
 > 👉 [Watch the hardware demonstration video on YouTube](Iwillputthelinkhere)
 <br>
