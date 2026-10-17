@@ -3,6 +3,7 @@
 ![IDE](https://img.shields.io/badge/IDE-STM32CubeIDE-green)
 
 # GPIO output (Turn ON user led / Hello world)
+<br>
 
 ## 🎯 Description
 First bare-metal firmware project. It directly initializes the hardware registers in C (without HAL or CMSIS libraries) to enable the clock and turn ON the user LED (**LD2**, physically mapped to pin **PA5**, as specified in page 24 of the datasheet).
@@ -12,9 +13,10 @@ First bare-metal firmware project. It directly initializes the hardware register
 | Component | Pin | Configuration |
 | :--- | :--- | :--- |
 | User LED (LD2) | PA5 | Output Push-pull |
+<br>
 
 <p align="center">
-  <img src="./images/STM32_LD2.png" alt="LD2 in STM32" width="25%"><br>
+  <img src="./images/STM32_LD2.png" alt="LD2 in STM32" width="40%"><br>
   <small><i>Physical location of user LED (LD2) indicated by the red arrow.</i></small>
 </p>
 <br>
