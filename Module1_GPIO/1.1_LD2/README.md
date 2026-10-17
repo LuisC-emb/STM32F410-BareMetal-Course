@@ -15,7 +15,7 @@ First bare-metal firmware project. It directly initializes the hardware register
 
 Image with LD2 signaled in the physical STM32 board
 <p align="center">
-  <img src="./images/STM32_LD2.png" alt="LD2 in STM32" width="50%">
+  <img src="./images/STM32_LD2.png" alt="LD2 in STM32" width="25%">
 </p>
 
 ## 📺 Hardware demonstration
