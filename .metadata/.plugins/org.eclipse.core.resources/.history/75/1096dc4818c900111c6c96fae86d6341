@@ -1,0 +1,50 @@
+//1.3''Code to turn change the status of LEDs with buttons
+
+//Librarys
+#include <stdint.h>
+
+//Macros section
+#define RCC_AHB1ENR ((volatile uint32_t*)0x40023830)  //Clock for peripherals in bus AHB1 (like GPIOA)
+#define GPIOA_MODER ((volatile uint32_t*)0x40020000) //MODER = Mode register
+#define GPIOA_PUPDR ((volatile uint32_t*)0x4002000C) //PUPDR = Pull up/ pull down register
+#define GPIOA_IDR ((volatile uint32_t*)0x40020010) //IDR = Input data register
+#define GPIOA_BSRR ((volatile uint32_t*)0x40020018) //BSRR = Bit set/reset register
+
+int main(){
+	//1. Enable clock for GPIOA
+	*RCC_AHB1ENR |= (1 << 0);
+
+	//2. Configure MODER0 and MODER2 as input mode (PA0 and PA1)
+	*GPIOA_MODER &= ~(3 << 0); //Bits 1:0 set as 00 (MODER0). PA0 in input mode enabled
+	*GPIOA_MODER &= ~(3 << 4); //Bits 5:4 set as 00 (MODER2). PA2 in input mode
+
+	//3. Configure PA0 as pull down register, the base state of PA0 will be LOW
+	*GPIOA_PUPDR |= (3 << 0); //Bits 1:0 set as 10 (PUPDR0). PA0 configured as pull-down
+
+	//4. Configure PA2 as pull up register, the base state of PA2 will be HIGH
+	*GPIOA_PUPDR |= (1 << 4); //Bits 5:4 set as 01 (PUPDR2). PA2 configured as pull-up
+
+	//Infinite loop
+	while (1){
+
+		//Check the button to PA0
+		if (*GPIOA_IDR == (1 << 0)){
+			*GPIOA_BSRR |= (1 << 0); //Set PA0
+		}
+		else if (*GPIOA_IDR == (0 << 0)){
+			*GPIOA_BSRR &= ~(1 << 0); //Reset PA0
+		}
+
+
+		//Check the button to PA2
+		else if (*GPIOA_IDR == (1 << 2)){
+			*GPIOA_BSRR |= (1 << 2); //Set PA2
+		}
+		else if (*GPIOA_IDR == (0 << 2)){
+			*GPIOA_BSRR &= ~(1 << 2); //Reset PA2
+		}
+
+	}
+
+	return 0;
+}

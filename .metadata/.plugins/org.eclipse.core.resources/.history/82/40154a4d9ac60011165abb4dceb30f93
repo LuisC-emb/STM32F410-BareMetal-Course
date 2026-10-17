@@ -1,0 +1,30 @@
+//6_2EXTI
+#include "gpio.h"
+
+int main(void)
+{
+	//1. Enable RCC->AHB1ENR for GPIOA, set PA0 as MODER 00 = input mode
+	gpio_init_input(GPIOA, 0, GPIO_PUPDR_PULLDOWN);
+
+	//2.Enable Peripheral clock on SYSCFG
+	RCC->APB2ENR &= ~(0xEU << 1); //Cleaning
+	RCC->APB2ENR |= (0xEU << 1); //Set bit
+
+	//3. Connect PA0 to EXTI0 via SYSCFG
+	SYSCFG->EXTICR1 &= ~(0xFU << 0);
+
+	//4. Configure EXTI line 0
+	EXTI->IMR &= ~(0x1U << 1); //Unmask line 0 (enable interrupt output)
+	EXTI->RTSR |= (0x1U << 0); //Rising edge trigger (0V -> 3.3V)
+	EXTI->FTSR &= ~(0x1U << 0); //Disable falling trigger
+
+	//5. Enable EXTI0 in the NVIC (Cortex-M Core)
+	NVIC_SetPriority(EXTI0_IRQn, 2); //Set priority level to 2
+	NVIC_EnableIRQ(EXTI0,IRQn);      //Unmask EXTI0 vector in NVIC
+
+
+	while (1){
+
+	}
+	return 0;
+}

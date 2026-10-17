@@ -1,0 +1,23 @@
+//Here is my firmware "Hello world", I will to turn on the GPIOA Pin 5 (MODER 5)
+
+//Librarys
+#include <stdint.h>
+
+//Macros section
+#define RCC_AHB1ENR ((volatile uint32_t*)0x40023830)  //Clock for peripherals in bus AHB1 (like GPIOA)
+#define GPIOA_MODER ((volatile uint32_t*)0x40020000) //MODER = Mode register
+#define GPIOA_ODR ((volatile uint32_t*)0x40020014) //ODR = Output data register
+
+int main(){
+	*RCC_AHB1ENR |= (1 << 0); //Turn on the clock for GPIOA
+
+	*GPIOA_MODER &= ~(3 << (5*2)); //Clear bits 11:10
+	*GPIOA_MODER |= (1 << 10); //Set as 01 bits 11:10, pin PA5 enabled in output mode
+	*GPIOA_ODR |= (1 << 5); //Send 3.3V to PA5
+
+//Infinite loop
+	while (1){
+	}
+
+	return 0;
+}

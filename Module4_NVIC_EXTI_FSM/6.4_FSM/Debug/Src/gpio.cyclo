@@ -1,0 +1,4 @@
+../Src/gpio.c:5:6:gpio_clock_enable	5
+../Src/gpio.c:14:6:gpio_init_input	1
+../Src/gpio.c:28:6:gpio_init_output	2
+../Src/gpio.c:48:6:gpio_a_init_output_pa5	2

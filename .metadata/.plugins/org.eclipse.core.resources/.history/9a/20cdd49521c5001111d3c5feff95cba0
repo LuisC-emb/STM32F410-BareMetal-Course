@@ -1,0 +1,17 @@
+#include "gpio.h"
+
+int main(void)
+{
+	//Enable RCC->AHB1ENR for GPIOA, set PA0 as MODER 00 = input mode
+	gpio_init_input(GPIOA, 0, GPIO_PUPDR_PULLDOWN);
+
+	//Enable Peripheral clock on SYSCFG
+	RCC->APB2ENR &= ~(0xEU << 1); //Cleaning
+	RCC->APB2ENR |= (0xEU << 1); //Set bit
+
+	SYSCFG->EXTICR1 &= (0x0U << 0);
+	while (1){
+
+	}
+	return 0;
+}

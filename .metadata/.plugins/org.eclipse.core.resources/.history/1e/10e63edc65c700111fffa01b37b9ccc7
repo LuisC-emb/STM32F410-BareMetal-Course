@@ -1,0 +1,50 @@
+#ifndef GPIO_H_
+#define GPIO_H_
+
+#include "stm32f410rb.h" //Have the definitions of GPIO_TypeDef, RCC, etc.
+
+//Configure the I/O direction mode (MODER)
+typedef enum {
+	GPIO_MODE_INPUT       = 0x00U,
+	GPIO_MODE_OUTPUT      = 0x01U,
+	GPIO_MODE_ALT_FN      = 0x02U,
+	GPIO_MODE_ANALOG      = 0x03U,
+} GPIO_Mode_t;
+
+//Configure the output type of the I/O port (OTYPER)
+typedef enum {
+	GPIO_OTYPE_PUSHPULL   = 0x00U,
+	GPIO_OTYPE_OPENDRAIN  = 0x01U
+}GPIO_Otype_t;
+
+//Configure the I/O pull-up or pulldown  (PUPDR)
+typedef enum {
+	GPIO_PUPDR_NONE       = 0x00U,
+	GPIO_PUPDR_PULLUP     = 0x01U,
+	GPIO_PUPDR_PULLDOWN   = 0x02U,
+} GPIO_Pupd_t;
+
+//Pin states
+typedef enum {
+	GPIO_PIN_RESET = 0U,
+	GPIO_PIN_SET   = 1U
+}GPIO_PinState_t;
+
+
+
+//Functions for GPIO
+void gpio_clock_enable(GPIO_TypeDef *port);
+
+void gpio_init_input(GPIO_TypeDef *port, uint8_t pin, GPIO_Pupd_t pull_type);
+void gpio_init_output(GPIO_TypeDef *port, uint8_t pin, GPIO_Otype_t output_type, GPIO_Pupd_t pull_type);
+void gpio_init_alt_func(GPIO_TypeDef *port, uint8_t pin, uint8_t af_number);
+
+//Read and write functions
+void gpio_write_pin(GPIO_TypeDef *port, uint8_t pin, GPIO_PinState_t state);
+void gpio_toggle_pin(GPIO_TypeDef *port, uint8_t pin);
+GPIO_PinState_t gpio_read_pin(GPIO_TypeDef *port, uint8_t pin);
+
+//function to test the initialization of hardware
+void gpio_a_init_output_pa5(void);
+
+#endif /* GPIO_H_ */

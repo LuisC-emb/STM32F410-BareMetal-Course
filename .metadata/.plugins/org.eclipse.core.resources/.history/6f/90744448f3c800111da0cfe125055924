@@ -1,0 +1,23 @@
+//Code to turn ON an external LED
+
+//Librarys
+#include <stdint.h>
+
+//Macros section
+#define RCC_AHB1ENR ((volatile uint32_t*)0x40023830)  //Clock for peripherals in bus AHB1 (like GPIOA)
+#define GPIOA_MODER ((volatile uint32_t*)0x40020000) //MODER = Mode register
+#define GPIOA_ODR ((volatile uint32_t*)0x40020014) //ODR = Output data register
+
+int main(){
+	*RCC_AHB1ENR |= (1 << 0); //Turn on the clock for GPIOA
+
+	*GPIOA_MODER &= ~(3 << 0); //Clear bits 1:0
+	*GPIOA_MODER |= (1 << 0); //Set as 00 bits 1:0, pin PA0 enabled in output mode
+	*GPIOA_ODR |= (1 << 5); //Send 3.3V to PA5
+
+//Infinite loop
+	while (1){
+	}
+
+	return 0;
+}

@@ -1,0 +1,17 @@
+//exti.h to topic 6.4
+#ifndef EXTI_H_
+#define EXTI_H_
+
+#include "stm32f4xx.h"
+
+#define EXTI0_IRQn 6
+
+//Initializes Pa0 as an external interrupt input with rising-edge trigger
+
+static inline void core_enable_interrupts(void) {
+    __asm volatile ("cpsie i" : : : "memory");
+}
+
+void exti0_pa0_init(void);
+
+#endif

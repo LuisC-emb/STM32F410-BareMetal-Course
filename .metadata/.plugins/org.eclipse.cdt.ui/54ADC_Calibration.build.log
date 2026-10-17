@@ -1,0 +1,31 @@
+17:59:59 **** Incremental Build of configuration Debug for project 54ADC_Calibration ****
+make -j12 all 
+arm-none-eabi-gcc "../Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DSTM32F410RBTx -DSTM32 -DNUCLEO_F410RB -DSTM32F4 -c -I../Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Src/main.d" -MT"Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Src/main.o"
+In file included from ../Inc/gpio.h:4,
+                 from ../Src/main.c:1:
+../Inc/stm32f410rb.h:8:1: warning: "/*" within comment [-Wcomment]
+    8 | /*=====================================================================*/
+../Inc/stm32f410rb.h:126:1: warning: "/*" within comment [-Wcomment]
+  126 | /*2. Direcciones base de memorias y buses (STM32F410RB)
+../Inc/stm32f410rb.h:127:1: warning: "/*" within comment [-Wcomment]
+  127 | /*=====================================================================*/
+../Inc/stm32f410rb.h:142:1: warning: "/*" within comment [-Wcomment]
+  142 | /*3. Casteo a punteros
+../Inc/stm32f410rb.h:143:1: warning: "/*" within comment [-Wcomment]
+  143 | /*=====================================================================*/
+../Src/main.c: In function 'main':
+../Src/main.c:6:9: error: implicit declaration of function 'gpio_init_input' [-Wimplicit-function-declaration]
+    6 |         gpio_init_input(GPIOA, 0, GPIO_PUPDR_PULLDOWN);
+      |         ^~~~~~~~~~~~~~~
+../Src/main.c:6:35: error: 'GPIO_PUPDR_PULLDOWN' undeclared (first use in this function)
+    6 |         gpio_init_input(GPIOA, 0, GPIO_PUPDR_PULLDOWN);
+      |                                   ^~~~~~~~~~~~~~~~~~~
+../Src/main.c:6:35: note: each undeclared identifier is reported only once for each function it appears in
+../Src/main.c:12:9: error: 'SYSCFG' undeclared (first use in this function)
+   12 |         SYSCFG->EXTICR1 &= (0x0U << 0);
+      |         ^~~~~~
+make: *** [Src/subdir.mk:34: Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+
+17:59:59 Build Failed. 4 errors, 5 warnings. (took 255ms)
+

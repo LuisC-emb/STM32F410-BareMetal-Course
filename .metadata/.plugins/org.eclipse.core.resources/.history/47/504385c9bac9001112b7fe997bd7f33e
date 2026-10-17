@@ -1,0 +1,38 @@
+//1.3''Code to turn change the status of LEDs with buttons
+
+//Librarys
+#include <stdint.h>
+
+//Macros section
+#define RCC_AHB1ENR ((volatile uint32_t*)0x40023830)  //Clock for peripherals in bus AHB1 (like GPIOA)
+#define GPIOA_MODER ((volatile uint32_t*)0x40020000) //MODER = Mode register
+#define GPIOA_PUPDR ((volatile uint32_t*)0x4002000C) //PUPDR = Pull up/ pull down register
+#define GPIOA_IDR ((volatile uint32_t*)0x40020010) //IDR = Input data register
+#define GPIOA_BSRR ((volatile uint32_t*)0x40020018) //BSRR = Bit set/reset register
+
+int main(){
+	//1. Enable clock for GPIOA
+	*RCC_AHB1ENR |= (1 << 0);
+
+	//2. Configure PA0 as input mode and PA2 as output mode
+	*GPIOA_MODER &= ~(3 << 0); //Bits 1:0 set PA0 as 00 (MODER0)
+	*GPIOA_MODER &= ~(3 << 4); //Clear bits 5:4 (MODER2)
+	*GPIOA_MODER |= (1 << 4);  //Bits 5:4 set PA2 as 01 (MODER2)
+
+	//3. Configure PA0 as pull down register, the base state of PA0 will be LOW
+	*GPIOA_PUPDR |= (2 << 0); //Bits 1:0 set as 10 (PUPDR0).
+
+	//Infinite loop
+	while (1){
+
+		//Check the button to PA0
+		if (*GPIOA_IDR & (1 << 0)){
+			*GPIOA_BSRR = (1 << 2); //Set PA2
+		}
+		else {*GPIOA_BSRR = (1 << 18); //Reset PA2
+		}
+
+	}
+
+	return 0;
+}

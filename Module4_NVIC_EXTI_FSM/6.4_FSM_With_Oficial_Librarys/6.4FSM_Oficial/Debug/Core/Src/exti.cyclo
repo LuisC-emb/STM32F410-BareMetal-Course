@@ -1,0 +1,4 @@
+../Drivers/CMSIS/Include/core_cm4.h:1684:22:__NVIC_EnableIRQ	2
+../Drivers/CMSIS/Include/core_cm4.h:1814:22:__NVIC_SetPriority	2
+../Core/Src/exti.c:8:6:exti0_pa0_init	1
+../Core/Src/exti.c:31:6:EXTI0_IRQHandler	2

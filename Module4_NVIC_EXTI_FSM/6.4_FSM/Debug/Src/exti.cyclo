@@ -1,0 +1,4 @@
+../Inc/stm32f410rb.h:191:20:NVIC_EnableIRQ	5
+../Inc/stm32f410rb.h:207:20:NVIC_SetPriority	2
+../Src/exti.c:8:6:exti0_pa0_init	1
+../Src/exti.c:31:6:EXTI0_IRQHandler	2

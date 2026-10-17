@@ -1,0 +1,39 @@
+//exti.c to topic 6.2 and 6.3
+#include "exti.h"
+#include "gpio.h"
+
+//Volatile flag used to communicate safely between the ISR and main()
+volatile uint8_t button_pressed_flag = 0;
+
+void exti0_pa0_initialize(void) {
+	//1. Configure PA0 as input mode using GPIO driver
+	gpio_init_input(GPIOA, 0, GPIO_PUPDR_PULLDOWN);
+
+	//2. Connect PA0 to EXTI0 via SYSCFG
+	RCC->APB2ENR |= (0x1U << 14);
+	SYSCFG->EXTICR1 &= ~(0xFU << (0));
+
+	//3. Configure EXTI0 line tiggers
+	EXTI->IMR |= (0x1U << 0);      //Allow the trigger go to NVIC
+	EXTI->RTSR |= (0x1U << 0);     //Trigger when the event happen and the signal go from 0V to 3.3V
+	EXTI->FTSR &= ~(0x1U << 0);    //Disable another trigger when the signal go from 3.3V -> 0V
+
+	//4. Configure the NVIC
+	NVIC_SetPriority(EXTI0_IRQn, 2); //Set the priority level in 2 to EXTI0
+	NVIC_EnableIRQ(EXTI0_IRQn);      //Enable the interrupt EXTI0 in the NVIC
+}
+
+//ISR to button PA0
+void EXTI0_IRQHandler(void){
+	//1. Check if the pending flag for Line 0 is actually set
+	if (EXTI->PR & (0x1U <<0)){
+
+		//2. Perform minimal ISR work: Set an event flag for main ()
+		button_pressed_flag = 1;
+
+		//3. MANDATORY: Clear the pending bit by writing a 1 to it
+		EXTI->PR |= (0x1U << 0);
+
+	}
+
+}
